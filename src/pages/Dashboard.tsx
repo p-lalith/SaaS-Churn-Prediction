@@ -1,23 +1,28 @@
 import { useState, useMemo } from "react";
-import { mockCustomerData } from "@/data/mockData";
+import { mockCustomerData, topHighRiskCustomers } from "@/data/mockData";
 import { CustomerData, FilterState } from "@/types/dashboard";
 import { DataTable } from "@/components/dashboard/DataTable";
 import { FilterControls } from "@/components/dashboard/FilterControls";
 import { ChartComponents } from "@/components/dashboard/ChartComponents";
+import { DatasetSelector } from "@/components/dashboard/DatasetSelector";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { TrendingUp, Users, DollarSign, AlertTriangle } from "lucide-react";
 
 const Dashboard = () => {
+  const [selectedDataset, setSelectedDataset] = useState<'all' | 'high-risk'>('all');
   const [filters, setFilters] = useState<FilterState>({
     churn_risk_threshold: 0,
     selected_plan_tier: "",
     selected_industry: "",
   });
 
+  // Get base dataset
+  const baseData = selectedDataset === 'all' ? mockCustomerData : topHighRiskCustomers;
+
   // Apply filters to data
   const filteredData = useMemo(() => {
-    return mockCustomerData.filter((customer) => {
+    return baseData.filter((customer) => {
       if (filters.churn_risk_threshold > 0 && customer.churn_risk_score < filters.churn_risk_threshold) {
         return false;
       }
@@ -29,7 +34,7 @@ const Dashboard = () => {
       }
       return true;
     });
-  }, [filters]);
+  }, [baseData, filters]);
 
   // Calculate summary statistics
   const stats = useMemo(() => {
@@ -124,9 +129,15 @@ const Dashboard = () => {
           </Card>
         </div>
 
-        {/* Filters and Data */}
+        {/* Dataset Selector & Filters */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 space-y-6">
+            <DatasetSelector
+              selectedDataset={selectedDataset}
+              onDatasetChange={setSelectedDataset}
+              totalCount={mockCustomerData.length}
+              highRiskCount={topHighRiskCustomers.length}
+            />
             <FilterControls filters={filters} onFiltersChange={setFilters} />
           </div>
           <div className="lg:col-span-3">
