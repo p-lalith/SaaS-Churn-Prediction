@@ -1,13 +1,12 @@
 export interface CustomerData {
   id: string;
-  plan_tier: "Starter" | "Professional" | "Enterprise" | "Premium";
-  industry: "Technology" | "Healthcare" | "Finance" | "Retail" | "Manufacturing" | "Education";
+  plan_tier: "Basic" | "Pro" | "Enterprise";
+  industry: "FinTech" | "HealthTech" | "EdTech" | "DevTools" | "Cybersecurity";
   seats: number;
   mrr_amount: number;
   churn: boolean;
   churn_risk_score: number;
-  company_name: string;
-  created_date: string;
+  account_name: string;
 }
 
 export interface FilterState {

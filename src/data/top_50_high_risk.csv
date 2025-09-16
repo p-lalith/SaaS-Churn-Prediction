@@ -1,8 +1,4 @@
-import { CustomerData } from "@/types/dashboard";
-import { parseCSVData } from "@/utils/csvParser";
-
-// Real customer data from CSV
-const csvData = `account_id,plan_tier,industry,mrr_amount,ticket_count,avg_resolution_time,avg_satisfaction,churn,churn_risk_score,account_name,country,signup_date,referral_source,seats_x,is_trial,churn_flag_x,arr_amount,seats_y,upgrade_flag,downgrade_flag,churn_flag_y,billing_frequency,auto_renew_flag,total_usage_count,total_usage_secs,total_errors,beta_feature_ratio,escalation_rate
+account_id,plan_tier,industry,mrr_amount,ticket_count,avg_resolution_time,avg_satisfaction,churn,churn_risk_score,account_name,country,signup_date,referral_source,seats_x,is_trial,churn_flag_x,arr_amount,seats_y,upgrade_flag,downgrade_flag,churn_flag_y,billing_frequency,auto_renew_flag,total_usage_count,total_usage_secs,total_errors,beta_feature_ratio,escalation_rate
 A-f17767,Enterprise,DevTools,1152.7857142857142,3.0,36.333333333333336,4.0,1,0.9133333333333333,Company_123,US,2023-01-30,event,1,True,True,13833.42857142857,13.642857142857142,0.2142857142857142,0.0714285714285714,True,monthly,0.9285714285714286,713.0,208977.0,38.0,0.0494047619047619,0.3333333333333333
 A-5c9849,Basic,EdTech,4083.8888888888887,4.0,59.5,0.0,1,0.9066666666666666,Company_362,IN,2024-11-03,partner,19,False,False,49006.66666666666,36.888888888888886,0.2222222222222222,0.0,True,monthly,0.7777777777777778,473.0,151483.0,23.0,0.0303571428571428,0.25
 A-726cfa,Pro,DevTools,1830.6315789473683,3.0,35.666666666666664,4.0,1,0.8966666666666666,Company_82,US,2023-07-01,partner,11,False,False,21967.57894736842,21.05263157894737,0.1052631578947368,0.0,True,monthly,0.8421052631578947,993.0,281986.0,45.0,0.1350079744816587,0.0
@@ -52,6 +48,4 @@ A-241e75,Enterprise,EdTech,718.8,4.0,31.5,4.5,1,0.83,Company_242,US,2024-07-03,p
 A-a8d89d,Pro,EdTech,2443.333333333333,2.0,44.5,5.0,1,0.83,Company_326,US,2023-12-08,ads,13,False,False,29320.0,22.25,0.1666666666666666,0.0,False,monthly,0.9166666666666666,551.0,170966.0,26.0,0.0826388888888888,0.0
 A-c222ab,Pro,Cybersecurity,2665.1428571428573,4.0,39.0,5.0,1,0.83,Company_206,US,2024-05-10,other,32,False,True,31981.714285714286,32.0,0.1428571428571428,0.0,True,monthly,0.8571428571428571,435.0,133441.0,33.0,0.1275510204081632,0.0
 A-7f4db3,Pro,FinTech,1751.7333333333331,5.0,16.6,3.25,1,0.83,Company_441,US,2023-03-05,other,4,False,False,21020.8,19.933333333333334,0.0,0.0666666666666666,True,annual,0.8666666666666667,844.0,278000.0,46.0,0.0734126984126984,0.2
-A-118f1c,Pro,Cybersecurity,6520.0,1.0,64.0,3.0,1,0.83,Company_492,US,2024-10-31,other,32,False,False,78240.0,44.0,0.0,0.0,True,annual,0.625,369.0,96816.0,14.0,0.0416666666666666,0.0`;
-
-export const mockCustomerData: CustomerData[] = parseCSVData(csvData);
+A-118f1c,Pro,Cybersecurity,6520.0,1.0,64.0,3.0,1,0.83,Company_492,US,2024-10-31,other,32,False,False,78240.0,44.0,0.0,0.0,True,annual,0.625,369.0,96816.0,14.0,0.0416666666666666,0.0

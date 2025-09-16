@@ -18,10 +18,9 @@ export const DataTable = ({ data }: DataTableProps) => {
 
   const getPlanTierVariant = (tier: string) => {
     const variants = {
-      Starter: "secondary",
-      Professional: "default",
-      Enterprise: "outline",
-      Premium: "default"
+      Basic: "secondary",
+      Pro: "default", 
+      Enterprise: "outline"
     };
     return variants[tier as keyof typeof variants] || "secondary";
   };
@@ -55,7 +54,7 @@ export const DataTable = ({ data }: DataTableProps) => {
                 <tr key={customer.id} className="border-b border-border hover:bg-accent/50 transition-colors">
                   <td className="py-3 px-4">
                     <div>
-                      <div className="font-medium">{customer.company_name}</div>
+                      <div className="font-medium">{customer.account_name}</div>
                       <div className="text-sm text-muted-foreground">{customer.id}</div>
                     </div>
                   </td>
