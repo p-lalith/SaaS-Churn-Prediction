@@ -1,4 +1,7 @@
-# SaaS-Churn-Prediction
+# SaaS Churn Prediction
+
+**🔗 Live Demo: [saa-s-churn-prediction.vercel.app](https://saa-s-churn-prediction.vercel.app)**
+
 Built a churn prediction model on a synthetic SaaS dataset with actionable insights for retention strategies, delivered via notebooks, CSV exports, and business dashboards.
 
 This project predicts **customer churn** using the synthetic **RavenStack SaaS dataset**.  
