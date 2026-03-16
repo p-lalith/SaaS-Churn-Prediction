@@ -61,9 +61,44 @@ The goal of this project:
 ---
 
 ## 📊 Key Business Insights
-- **Basic plan churns more** → upsell incentives (discounted annual, feature gating).  
-- **Low engagement** (low usage) strongly correlates with churn → onboarding & product nudges.  
-- **High ticket count / long resolution times** predict churn → improve customer success processes.  
-- **Beta feature adoption** is linked with retention → invest in product adoption campaigns.  
+- **Basic plan churns more** → upsell incentives (discounted annual, feature gating).
+- **Low engagement** (low usage) strongly correlates with churn → onboarding & product nudges.
+- **High ticket count / long resolution times** predict churn → improve customer success processes.
+- **Beta feature adoption** is linked with retention → invest in product adoption campaigns.
+
+---
+
+## 🚀 Running the Full Stack
+
+### Option 1 — Docker Compose (recommended)
+```bash
+docker-compose up
+```
+- Frontend: http://localhost:5173
+- API: http://localhost:8000
+
+### Option 2 — Manual
+
+**Backend (FastAPI)**
+```bash
+pip install -r requirements_api.txt
+uvicorn main:app --reload
+# API available at http://localhost:8000
+```
+
+**Frontend (React + Vite)**
+```bash
+cp .env.example .env
+npm install
+npm run dev
+# Dashboard at http://localhost:5173
+```
+
+### API Endpoints
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | `/health` | Check model status |
+| POST | `/predict` | Score JSON records |
+| POST | `/predict-csv` | Upload CSV → get scored CSV back |
 
 ---
